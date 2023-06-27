@@ -18,5 +18,8 @@
   "homepage": "https://github.com/iis4u2nv/OOPLogo10#readme",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.4"
   }
 }
