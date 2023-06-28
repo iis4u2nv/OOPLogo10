@@ -57,9 +57,9 @@ switch (answers.shape) {
 }
 shape.setColor(answers.colors);
   console.log(answers.colors);
-
+shape.setText(answers.logo)
   console.log(answers);
-  writeFile('logo.svg', JSON.stringify(answers), (error) => {
+  writeFile('logo.svg',(shape.render()), (error) => {
       error ? console.log(error) : console.log('Logo.svg generated successfully');
   })
 })
