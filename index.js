@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const {writeFile} = require('fs').promises;
-const {Circle, Triangle, Square} = require('./lib/shapes');
+const Circle = require('./lib/circle');
+const Square = require('./lib/square');
+const Triangle = require('./lib/triangle');
 inquirer
   .prompt([
     {
@@ -8,7 +10,7 @@ inquirer
       name: "logo",
       message:"Choose three characters that will be displayed in your logo",
       validate: (x) => {
-        const logoRegex = /^[A-Z0-9]{2,3}$/;
+        const logoRegex = /^[A-Za-z0-9]{2,3}$/;
          const validator = x.match(logoRegex);
          console.log('x='+x);
          console.log('validator='+validator);
@@ -32,10 +34,10 @@ inquirer
         const validColors = ['orange', 'blue', 'purple', 'yellow'];
         for (var i = 0; i < validColors.length; i++) {
           if (validColors[i] === x) {
-              return true;
+            return true;
           }
-      
-      }    
+      }
+      return 'Please choose a valid color'     
      }  
     },
   ])
@@ -63,3 +65,6 @@ shape.setText(answers.logo)
       error ? console.log(error) : console.log('Logo.svg generated successfully');
   })
 })
+module.exports = {
+  
+}
